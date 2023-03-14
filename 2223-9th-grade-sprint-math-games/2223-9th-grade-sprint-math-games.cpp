@@ -1,22 +1,32 @@
 #include "raylib.h"
 
-int main()
-{
-	const int screenWidth = 800;
-	const int screenHeight = 450;
+int main() {
 
-	InitWindow(screenWidth, screenHeight, "Open-minded project game");
+	InitWindow(GetScreenWidth(), GetScreenHeight(), "Open-minded project game");
 
 	SetTargetFPS(60);
 	
+	Texture2D learn, test, about, minimize, fullscreen, close;
+	learn = LoadTexture("../images/learn.png");
+	test = LoadTexture("../images/test.png");
+	about = LoadTexture("../images/about.png");
+	minimize = LoadTexture("../images/minimize.png");
+	fullscreen = LoadTexture("../images/fullscreen.png");
+	close = LoadTexture("../images/close.png");
+
 	while (!WindowShouldClose())
 	{
-
+		
 		BeginDrawing();
 
-		ClearBackground(LIGHTGRAY);
+		ClearBackground(BACKGOUND_COLOR);
 
-		DrawText("First steps in raylib", 190, 200, 20, ORANGE);
+		DrawTexture(learn, 50, 100, WHITE);
+		DrawTexture(test, 550, 100, WHITE);
+		DrawTexture(about, 1050, 100, WHITE);
+		DrawTexture(minimize, 1630, 40, WHITE);
+		DrawTexture(fullscreen, 1730, 40, WHITE);
+		DrawTexture(close, 1830, 40, WHITE);
 
 		EndDrawing();
 	}
