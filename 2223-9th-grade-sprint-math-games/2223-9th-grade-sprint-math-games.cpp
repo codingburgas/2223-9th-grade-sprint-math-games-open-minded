@@ -36,9 +36,9 @@ int main()
 	startGame = LoadTexture("../images/start.png");
 	rules = LoadTexture("../images/rules.png");
 	quitGame = LoadTexture("../images/quitGame.png");
-	Rectangle startGameButton = { 770, 350, startGame.width, startGame.height - 80 };
-	Rectangle rulesButton = { 770, 475, rules.width, rules.height - 80 };
-	Rectangle quitGameButton = { 775, 600, quitGame.width, quitGame.height - 80 };
+	Rectangle startGameButton = { 820, 350, startGame.width - 110, startGame.height - 60 };
+	Rectangle rulesButton = { 770, 475, rules.width - 110, rules.height - 60 };
+	Rectangle quitGameButton = { 775, 600, quitGame.width - 110, quitGame.height - 60 };
 
 	while (!exitGame)
 	{
@@ -64,6 +64,7 @@ int main()
 
 		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, quitGameButton))
 			exitGame = true;
+		
 	}
 }
 
