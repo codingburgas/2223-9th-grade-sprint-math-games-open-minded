@@ -1,4 +1,5 @@
 <p align = "center">
+<img src = "logo.png" alt = "logo">
  <br>
   <h1>📄 Description </h1>
   Open minded is a team made up of 4 members. We are tasked to create a c++ game about bitwise operations
