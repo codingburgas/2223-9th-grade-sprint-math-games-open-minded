@@ -27,6 +27,7 @@ int main()
 		mousePoint = GetMousePosition();
 		ballPosition = GetMousePosition();
 		BeginDrawing();
+		DrawFPS(50, 50);
 
 		ClearBackground(BLACK);
 

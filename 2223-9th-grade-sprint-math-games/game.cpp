@@ -16,6 +16,7 @@ void game()
 		ballPosition = GetMousePosition();
 
 		BeginDrawing();
+		DrawFPS(50, 50);
 
 		DrawTexture(ship, GetScreenWidth()/3 + 50, 700, WHITE);
 		DrawCircleV(ballPosition, 10, MAROON);
