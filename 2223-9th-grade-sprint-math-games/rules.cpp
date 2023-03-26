@@ -8,14 +8,18 @@ void rulesFunction()
 	SetExitKey(KEY_ESCAPE);
 
 	Vector2 ballPosition = { -100.0f, -100.0f };
-	Texture2D exit;
-	exit = LoadTexture("../images/exit1.png");
+	Vector2 mousePoint = { -100.0f, -100.0f };
+	Texture2D exitToGame, exitToMenu;
+	exitToGame = LoadTexture("../images/exit1.png");
+	exitToMenu = LoadTexture("../images/.png");
+	Rectangle exitRulesButton = { 1595, 788, exitToGame.width, exitToGame.height };
 	while (!WindowShouldClose())
 	{
 		ballPosition = GetMousePosition();
+		mousePoint = GetMousePosition();
 
 		BeginDrawing();
-		DrawTexture(exit, 1595, 788, BLUE);
+		DrawTexture(exitToGame, 1595, 788, BLUE);
 		DrawRectangleLines(75, 85, 1580, 820, ORANGE);
 		DrawCircleV(ballPosition, 10, MAROON);
 		HideCursor();
@@ -36,6 +40,10 @@ void rulesFunction()
 		DrawText("if you want it to be destroyed.", 100, 820, 50, ORANGE);
 		ClearBackground(BLACK);
 		EndDrawing();
+		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(mousePoint, exitRulesButton))
+			game();
+
+
 	}
 
 }
