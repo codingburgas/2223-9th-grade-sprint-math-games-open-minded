@@ -5,8 +5,6 @@ using namespace std;
 
 void game()
 {
-	Texture2D tryout = LoadTexture("../images/Try.png");
-
 	SetExitKey(KEY_ESCAPE);
 
 	while (!WindowShouldClose())
@@ -14,7 +12,6 @@ void game()
 		BeginDrawing();
 
 		ClearBackground(BLACK);
-		DrawTexture(tryout, 50, 100, WHITE);
 		EndDrawing();
 	}
 }
