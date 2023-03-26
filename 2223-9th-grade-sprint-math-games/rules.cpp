@@ -10,16 +10,17 @@ void rulesFunction()
 	Vector2 ballPosition = { -100.0f, -100.0f };
 	Vector2 mousePoint = { -100.0f, -100.0f };
 	Texture2D exitToGame, exitToMenu;
-	exitToGame = LoadTexture("../images/exit1.png");
-	exitToMenu = LoadTexture("../images/.png");
-	Rectangle exitRulesButton = { 1595, 788, exitToGame.width, exitToGame.height };
+	exitToGame = LoadTexture("../images/rulesToGame.png");
+	exitToMenu = LoadTexture("../images/rulesToMenuButton.png");
+	Rectangle exitRulesButton = { 1595, 915, exitToGame.width, exitToGame.height };
 	while (!WindowShouldClose())
 	{
 		ballPosition = GetMousePosition();
 		mousePoint = GetMousePosition();
 
 		BeginDrawing();
-		DrawTexture(exitToGame, 1595, 788, BLUE);
+		DrawTexture(exitToGame, 1625, 915, DARKGREEN);
+		DrawTexture(exitToMenu, 80, 915, DARKGREEN);
 		DrawRectangleLines(75, 85, 1580, 820, ORANGE);
 		DrawCircleV(ballPosition, 10, MAROON);
 		HideCursor();
