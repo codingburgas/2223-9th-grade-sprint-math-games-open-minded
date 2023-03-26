@@ -12,6 +12,7 @@ int main()
 
 	Texture2D background, startGame, rules, quitGame;
 	Vector2 mousePoint;
+	Vector2 ballPosition = { -100.0f, -100.0f };
 	bool exitGame = false;
 	background = LoadTexture("../images/mainMenuBackground.png");
 	startGame = LoadTexture("../images/start.png");
@@ -24,7 +25,7 @@ int main()
 	while (!exitGame)
 	{
 		mousePoint = GetMousePosition();
-
+		ballPosition = GetMousePosition();
 		BeginDrawing();
 
 		ClearBackground(BLACK);
@@ -33,6 +34,9 @@ int main()
 		DrawTexture(startGame, 770, 350, WHITE);
 		DrawTexture(rules, 770, 475, WHITE);
 		DrawTexture(quitGame, 775, 600, WHITE);
+		DrawCircleV(ballPosition, 10, MAROON);
+		HideCursor();
+
 		EndDrawing();
 
 		SetExitKey(0);
