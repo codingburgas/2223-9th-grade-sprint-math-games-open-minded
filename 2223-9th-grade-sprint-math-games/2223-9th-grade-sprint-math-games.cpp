@@ -18,9 +18,9 @@ int main()
 	startGame = LoadTexture("../images/start.png");
 	rules = LoadTexture("../images/rules.png");
 	quitGame = LoadTexture("../images/quitGame.png");
-	Rectangle startGameButton = { 820, 350, startGame.width - 110, startGame.height - 60 };
-	Rectangle rulesButton = { 770, 475, rules.width - 110, rules.height - 60 };
-	Rectangle quitGameButton = { 775, 600, quitGame.width - 110, quitGame.height - 60 };
+	Rectangle startGameButton = { 820, 350, startGame.width - 70, startGame.height - 60 };
+	Rectangle rulesButton = { 770, 475, rules.width - 70, rules.height - 90 };
+	Rectangle quitGameButton = { 775, 600, quitGame.width - 70, quitGame.height - 60 };
 
 	while (!exitGame)
 	{
