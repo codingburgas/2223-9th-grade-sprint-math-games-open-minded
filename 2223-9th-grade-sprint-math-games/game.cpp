@@ -79,10 +79,22 @@ string randomTask(string& task1, string& task2, string& operation)
 	}
 	return calculateResult(task1, task2, operationTemp);
 }
+
+
 void game()
 {
 	SetExitKey(KEY_ESCAPE);
-
+	int temp;
+	string answer;
+	answer = GetRandomValue(1, 5);
+	switch (temp)
+	{
+	case 1: answer = to_string(1); break;
+	case 2: answer = to_string(14); break;
+	case 3: answer = to_string(15); break;
+	case 4: answer = to_string(1011); break;
+	}
+	
 	Texture2D ship, asteroid_1, task_board;
 	ship = LoadTexture("../images/ship1.png");
 	task_board = LoadTexture("../images/task_board_50.png");
@@ -114,12 +126,17 @@ void game()
 
 		DrawTexture(ship, GetScreenWidth() / 3 + 90, 700, WHITE);
 		DrawTexture(task_board, GetScreenWidth() / 3 + 90, -30, WHITE);
-		DrawTexture(asteroid_1, 1300, 300, WHITE);
+		DrawTexture(asteroid_1, 1100, 300, WHITE);
+		DrawText(TextFormat("%s", answer.c_str(), 20, 20, 50, WHITE));
+		DrawTexture(asteroid_1, 1600, 700, WHITE);
+		DrawTexture(asteroid_1, 300, 400, WHITE);
+		DrawTexture(asteroid_1, 100, 750, WHITE);
+		DrawTexture(asteroid_1, GetScreenWidth()/2 - 170, GetScreenHeight()/2, WHITE);
 		DrawCircleV(ballPosition, 10, MAROON);
 
 
 		DrawText(TextFormat("%s %s %s", task1.c_str(), op.c_str(), task2.c_str()), GetScreenWidth() / 2 -75, 80, 36, GREEN);
-
+		
 		HideCursor();
 		ClearBackground(BLACK);
 		EndDrawing();
