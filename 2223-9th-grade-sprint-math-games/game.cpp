@@ -27,7 +27,7 @@ string decToBin(int n)
 void fillString(string& a)
 {
 	for (int i = 0; i < 4 - a.size(); i++)
-	{	
+	{
 		a = '0' + a;
 	}
 }
@@ -48,7 +48,7 @@ string calculateResult(string num1, string num2, int op)
 			res[i] = (int)(num1[i] - '0') << (int)(num2[i] - '0'); break;
 		case 5:
 			res[i] = (int)(num1[i] - '0') >> (int)(num2[i] - '0'); break;
-		
+
 		}
 		return res;
 	}
@@ -72,7 +72,7 @@ string randomTask(string& task1, string& task2, string& operation)
 	}
 	if (operation == ">>" || operation == "<<")
 	{
-		
+
 		task1 = to_string(GetRandomValue(1, 3));
 		task2 = to_string(GetRandomValue(1, 3));
 
@@ -91,23 +91,35 @@ void game()
 
 	string task1, task2, res, op;
 	res = randomTask(task1, task2, op);
-	
+
+	Texture2D bg = LoadTexture("../images/bg.png");
+	Rectangle bgRect[2] = { { 0, 0, bg.width, bg.height} , {0, -bg.height, bg.width, bg.height} };
+	float speed = 5;
 
 	while (!WindowShouldClose())
 	{
 		ballPosition = GetMousePosition();
 
 		BeginDrawing();
+
+		for (int i = 0; i < 2; i++)
+		{
+			bgRect[i].y += speed;
+			if ((bgRect[i].y) >= GetScreenHeight())
+				bgRect[i].y = -bg.height;
+
+			DrawTexture(bg, bgRect[i].x, bgRect[i].y, WHITE);
+		}
 		DrawFPS(50, 50);
 
 		DrawTexture(ship, GetScreenWidth() / 3 + 90, 700, WHITE);
 		DrawTexture(task_board, GetScreenWidth() / 3 + 20, -150, WHITE);
 		DrawTexture(asteroid_1, 1300, 300, WHITE);
 		DrawCircleV(ballPosition, 10, MAROON);
-		
-	
+
+
 		DrawText(TextFormat("%s %s %s", task1.c_str(), op.c_str(), task2.c_str()), 900, 50, 36, GREEN);
-		
+
 		HideCursor();
 		ClearBackground(BLACK);
 		EndDrawing();

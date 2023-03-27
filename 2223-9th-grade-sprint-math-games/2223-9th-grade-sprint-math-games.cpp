@@ -7,7 +7,7 @@ using namespace std;
 float HEIGHT, WIDTH;
 int main()
 {
-	InitWindow(0,0, "Open Minded - game project");
+	InitWindow(0, 0, "Open Minded - game project");
 	ToggleFullscreen();
 
 	SetTargetFPS(60);
@@ -34,7 +34,7 @@ int main()
 
 		ClearBackground(BLACK);
 
-		DrawTexture(background, WIDTH/38.4f, HEIGHT/10.8f, WHITE);
+		DrawTexture(background, WIDTH / 38.4f, HEIGHT / 10.8f, WHITE);
 		DrawTexture(startGame, 770, 350, WHITE);
 		DrawTexture(rules, 770, 475, WHITE);
 		DrawTexture(quitGame, 775, 600, WHITE);
