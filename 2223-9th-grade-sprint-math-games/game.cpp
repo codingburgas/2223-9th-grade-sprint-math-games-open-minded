@@ -31,6 +31,28 @@ void fillString(string& a)
 		a = '0' + a;
 	}
 }
+string calculateResult(string num1, string num2, int op)
+{
+	string res;
+	for (int i = 0; i < num1.size(); i++)
+	{
+		switch (op)
+		{
+		case 1:
+			res[i] = (int)(num1[i] - '0') & (int)(num2[i] - '0'); break;
+		case 2:
+			res[i] = (int)(num1[i] - '0') | (int)(num2[i] - '0'); break;
+		case 3:
+			res[i] = (int)(num1[i] - '0') ^ (int)(num2[i] - '0'); break;
+		case 4:
+			res[i] = (int)(num1[i] - '0') << (int)(num2[i] - '0'); break;
+		case 5:
+			res[i] = (int)(num1[i] - '0') >> (int)(num2[i] - '0'); break;
+		
+		}
+		return res;
+	}
+}
 void game()
 {
 	SetExitKey(KEY_ESCAPE);
@@ -41,13 +63,14 @@ void game()
 	asteroid_1 = LoadTexture("../images/asteroid_model_1.png");
 	Vector2 ballPosition = { -100.0f, -100.0f };
 	int num1, num2, operationTemp;
-	string task1, task2, operation;
+	string task1, task2, operation, res;
 	num1 = GetRandomValue(0, 15);
 	task1 = decToBin(num1);
 	fillString(task1);
 	num2 = GetRandomValue(0, 15);
 	task2 = decToBin(num2);
 	fillString(task2);
+	
 	operationTemp = GetRandomValue(1, 5);
 	switch (operationTemp)
 	{
@@ -57,6 +80,16 @@ void game()
 	case 4: operation = ">>"; break;
 	case 5: operation = "<<"; break;
 	}
+	if (operationTemp == 4 || operationTemp == 5)
+	{
+		num1 = GetRandomValue(0, 5);
+		task1 = to_string(num1);
+		num2 = GetRandomValue(0, 5);
+		task2 = to_string(num2);
+
+	}
+	res = calculateResult(task1, task2, operationTemp);
+	
 
 	while (!WindowShouldClose())
 	{
