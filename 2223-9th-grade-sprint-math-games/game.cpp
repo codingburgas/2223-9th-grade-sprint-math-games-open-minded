@@ -53,6 +53,32 @@ string calculateResult(string num1, string num2, int op)
 		return res;
 	}
 }
+string randomTask(string& task1, string& task2, string& operation)
+{
+	task1 = decToBin(GetRandomValue(0, 15));
+	task2 = decToBin(GetRandomValue(0, 15));
+
+	fillString(task1);
+	fillString(task2);
+
+	int operationTemp = GetRandomValue(1, 5);
+	switch (operationTemp)
+	{
+	case 1: operation = '&'; break;
+	case 2: operation = '|'; break;
+	case 3: operation = '^'; break;
+	case 4: operation = ">>"; break;
+	case 5: operation = "<<"; break;
+	}
+	if (operation == ">>" || operation == "<<")
+	{
+		
+		task1 = to_string(GetRandomValue(1, 3));
+		task2 = to_string(GetRandomValue(1, 3));
+
+	}
+	return calculateResult(task1, task2, operationTemp);
+}
 void game()
 {
 	SetExitKey(KEY_ESCAPE);
@@ -62,33 +88,9 @@ void game()
 	task_board = LoadTexture("../images/task_board.png");
 	asteroid_1 = LoadTexture("../images/asteroid_model_1.png");
 	Vector2 ballPosition = { -100.0f, -100.0f };
-	int num1, num2, operationTemp;
-	string task1, task2, operation, res;
-	num1 = GetRandomValue(0, 15);
-	task1 = decToBin(num1);
-	fillString(task1);
-	num2 = GetRandomValue(0, 15);
-	task2 = decToBin(num2);
-	fillString(task2);
-	
-	operationTemp = GetRandomValue(1, 5);
-	switch (operationTemp)
-	{
-	case 1: operation = '&'; break;
-	case 2: operation = '|'; break;
-	case 3: operation = '^'; break;
-	case 4: operation = ">>"; break;
-	case 5: operation = "<<"; break;
-	}
-	if (operationTemp == 4 || operationTemp == 5)
-	{
-		num1 = GetRandomValue(0, 5);
-		task1 = to_string(num1);
-		num2 = GetRandomValue(0, 5);
-		task2 = to_string(num2);
 
-	}
-	res = calculateResult(task1, task2, operationTemp);
+	string task1, task2, res, op;
+	res = randomTask(task1, task2, op);
 	
 
 	while (!WindowShouldClose())
@@ -104,7 +106,7 @@ void game()
 		DrawCircleV(ballPosition, 10, MAROON);
 		
 	
-		DrawText(TextFormat("%s %s %s", task1.c_str(), operation.c_str(), task2.c_str()), 900, 50, 36, GREEN);
+		DrawText(TextFormat("%s %s %s", task1.c_str(), op.c_str(), task2.c_str()), 900, 50, 36, GREEN);
 		
 		HideCursor();
 		ClearBackground(BLACK);
