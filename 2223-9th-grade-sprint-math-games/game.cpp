@@ -85,7 +85,7 @@ void game()
 
 	Texture2D ship, asteroid_1, task_board;
 	ship = LoadTexture("../images/ship1.png");
-	task_board = LoadTexture("../images/task_board.png");
+	task_board = LoadTexture("../images/task_board_50.png");
 	asteroid_1 = LoadTexture("../images/asteroid_model.png");
 	Vector2 ballPosition = { -100.0f, -100.0f };
 
@@ -113,12 +113,12 @@ void game()
 		DrawFPS(50, 50);
 
 		DrawTexture(ship, GetScreenWidth() / 3 + 90, 700, WHITE);
-		DrawTexture(task_board, GetScreenWidth() / 3 + 20, -150, WHITE);
+		DrawTexture(task_board, GetScreenWidth() / 3 + 90, -30, WHITE);
 		DrawTexture(asteroid_1, 1300, 300, WHITE);
 		DrawCircleV(ballPosition, 10, MAROON);
 
 
-		DrawText(TextFormat("%s %s %s", task1.c_str(), op.c_str(), task2.c_str()), 900, 50, 36, GREEN);
+		DrawText(TextFormat("%s %s %s", task1.c_str(), op.c_str(), task2.c_str()), GetScreenWidth() / 2 -75, 80, 36, GREEN);
 
 		HideCursor();
 		ClearBackground(BLACK);

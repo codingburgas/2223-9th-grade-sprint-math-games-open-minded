@@ -21,9 +21,9 @@ int main()
 	startGame = LoadTexture("../images/start.png");
 	rules = LoadTexture("../images/rules.png");
 	quitGame = LoadTexture("../images/quitGame.png");
-	Rectangle startGameButton = { 820, 350, startGame.width - 70, startGame.height - 60 };
-	Rectangle rulesButton = { 770, 475, rules.width - 70, rules.height - 60 };
-	Rectangle quitGameButton = { 775, 600, quitGame.width - 70, quitGame.height - 60 };
+	Rectangle startGameButton = { 820, 350, startGame.width, startGame.height };
+	Rectangle rulesButton = { 820, 475, rules.width, rules.height };
+	Rectangle quitGameButton = { 820, 600, quitGame.width, quitGame.height };
 
 	while (!exitGame)
 	{
@@ -35,9 +35,9 @@ int main()
 		ClearBackground(BLACK);
 
 		DrawTexture(background, WIDTH / 38.4f, HEIGHT / 10.8f, WHITE);
-		DrawTexture(startGame, 770, 350, WHITE);
-		DrawTexture(rules, 770, 475, WHITE);
-		DrawTexture(quitGame, 775, 600, WHITE);
+		DrawTexture(startGame, 820, 350, WHITE);
+		DrawTexture(rules, 818, 475, WHITE);
+		DrawTexture(quitGame, 820, 600, WHITE);
 		DrawCircleV(ballPosition, 10, MAROON);
 		HideCursor();
 
