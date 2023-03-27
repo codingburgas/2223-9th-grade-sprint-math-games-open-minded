@@ -86,7 +86,7 @@ void game()
 	Texture2D ship, asteroid_1, task_board;
 	ship = LoadTexture("../images/ship1.png");
 	task_board = LoadTexture("../images/task_board.png");
-	asteroid_1 = LoadTexture("../images/asteroid_model_1.png");
+	asteroid_1 = LoadTexture("../images/asteroid_model.png");
 	Vector2 ballPosition = { -100.0f, -100.0f };
 
 	string task1, task2, res, op;
@@ -102,7 +102,7 @@ void game()
 
 		DrawTexture(ship, GetScreenWidth() / 3 + 90, 700, WHITE);
 		DrawTexture(task_board, GetScreenWidth() / 3 + 20, -150, WHITE);
-		
+		DrawTexture(asteroid_1, 1300, 300, WHITE);
 		DrawCircleV(ballPosition, 10, MAROON);
 		
 	
