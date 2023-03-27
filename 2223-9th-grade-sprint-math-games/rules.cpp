@@ -12,15 +12,15 @@ void rulesFunction()
 	Texture2D exitToGame, exitToMenu;
 	exitToGame = LoadTexture("../images/rulesToGame.png");
 	exitToMenu = LoadTexture("../images/rulesToMenuButton.png");
-	Rectangle exitRulesButton = { 1595, 915, exitToGame.width, exitToGame.height };
+	Rectangle exitRulesButton = { 1635, 925, exitToGame.width, exitToGame.height };
 	while (!WindowShouldClose())
 	{
 		ballPosition = GetMousePosition();
 		mousePoint = GetMousePosition();
 
 		BeginDrawing();
-		DrawTexture(exitToGame, 1625, 915, DARKGREEN);
-		DrawTexture(exitToMenu, 80, 915, DARKGREEN);
+		DrawText("press ESC to go back", 75, 915, 20, LIME);
+		DrawTexture(exitToGame, 1635, 925, WHITE);
 		DrawRectangleLines(75, 85, 1580, 820, ORANGE);
 		DrawCircleV(ballPosition, 10, MAROON);
 		HideCursor();
